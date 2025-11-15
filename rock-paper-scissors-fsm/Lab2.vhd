@@ -1,0 +1,65 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Lab2_TC is
+    port (
+        a1: in std_logic_vector (2 downto 0); -- player 1
+        a2: in std_logic_vector (2 downto 0); -- player 2
+        O1, O2: out std_logic
+    );
+end Lab2_TC;
+
+architecture asd of Lab2_TC is
+    signal P1, P2: std_logic_vector(1 downto 0);
+    
+begin
+ 
+  -- "01"; --rock
+  -- "10"; --paper
+  -- "11"; --scissors
+  -- "00"; --unfilled
+  process(a1, a2)
+	begin
+		case a1 is
+            when "010" => P1 <= "01"; --rock
+            when "001" => P1 <= "10"; --paper
+            when "100" => P1 <= "11"; --scissors
+            when others => P1 <= "00"; --unfilled
+         end case;
+		case a2 is
+            when "010" => P2 <= "01";
+            when "001" => P2 <= "10";
+            when "100" => P2 <= "11";
+            when others => P2 <= "00";
+        end case;
+ end process;
+ 
+ 
+ process(P1, P2)
+	begin  
+		if P1 = "00" and P2 = "00" then 
+			O1 <= '0';
+			O2 <= '0';
+        elsif P1 = P2 then 
+            --ties
+            O1 <= '1';
+            O2 <= '1';
+        elsif P1 = "01" and P2 = "11" then
+            --Rock beaten by paper 
+            O1 <= '0';
+            O2 <= '1';
+        elsif P1 = "10" and P2 = "01" then 
+			--scissors beaten by rock
+			O1 <= '0';
+			O2 <=  '1';
+        elsif P1 = "11" and P2 = "10" then 
+            --paper beaten by scissors
+            O1 <= '0';
+            O2 <= '1';
+        else
+            O1 <= '1';
+            O2 <= '0';
+       end if;
+ end process;
+end asd;
