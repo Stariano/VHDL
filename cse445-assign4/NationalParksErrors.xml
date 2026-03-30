@@ -2,7 +2,7 @@
 <NationalPark
   xmlns="https://raw.githubusercontent.com/Stariano/VHDL/cse445-assign4-hosting/cse445-assign4"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="https://raw.githubusercontent.com/Stariano/VHDL/cse445-assign4-hosting/cse445-assign4 https://raw.githubusercontent.com/Stariano/VHDL/cse445-assign4-hosting/cse445-assign4/NationalParks.xsd">
+  xsi:schemaLocation="https://raw.githubusercontent.com/Stariano/VHDL/cse445-assign4-hosting/cse445-assign4 https://raw.githubusercontent.com/Stariano/VHDL/4232e754f24e7bcb95c3e86158e4462191e53699/cse445-assign4/NationalParks.xsd">
   <NationalPark Rating="4.9">
     <Name>Grand Canyon</Name>
     <Phone>928-638-7496</Phone>
